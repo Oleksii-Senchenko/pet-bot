@@ -1,0 +1,21 @@
+{
+  "name": "tg-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development nodemon ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "node-telegram-bot-api": "^0.65.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
