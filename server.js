@@ -13,15 +13,16 @@ const bot = new TelegramBot(TOKEN, {
   },
 });
 
+
 bot.on("message", (msg) => {
   const { id } = msg.chat;
-
-  bot
-    .sendMessage(id, debug(msg))
-    .then(() => {
-      console.log("Message has been send");
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  const html = `
+  <strong>Hello, ${msg.from.first_name}</strong>
+  <pre>
+      ${debug(msg)}
+  </pre>
+  `;
+  bot.sendMessage(id, html,{
+    parse_mode: "HTML"
+  });
 });
