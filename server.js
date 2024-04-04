@@ -13,16 +13,18 @@ const bot = new TelegramBot(TOKEN, {
   },
 });
 
-
 bot.on("message", (msg) => {
   const { id } = msg.chat;
-  const html = `
-  <strong>Hello, ${msg.from.first_name}</strong>
-  <pre>
-      ${debug(msg)}
-  </pre>
-  `;
-  bot.sendMessage(id, html,{
-    parse_mode: "HTML"
+  bot.sendMessage(id, "Inline keyboard", {
+    reply_markup: {
+      inline_keyboard: [
+        [{ text: "Google", url: "https://www.google.com" }],
+        [
+          { text: "Reply", callback_data: "reply" },
+          { text: "Forward", callback_data: "forward" },
+        ],
+      ],
+    },
   });
 });
+
